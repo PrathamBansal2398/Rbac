@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RBAC System</title>
+  <style>
+    /* General styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #3c40c6;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    /* Form container */
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    /* Input and button styling */
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #3c40c6;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #575fcf;
+    }
+
+    /* Route button section */
+    #adminRouteButton, #userRouteButton, #publicRouteButton {
+      display: none;
+      width: auto;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 25px;
+    }
+
+    #response {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #d1e7dd;
+      border: 1px solid #badbcc;
+      color: #0f5132;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Flex layout for buttons */
+    .route-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>RBAC System</h1>
+
+    <div>
+      <h2>Register</h2>
+      <input id="username" placeholder="Username" autocomplete="off">
+      <input id="password" type="password" placeholder="Password">
+      <select id="role">
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+        <option value="Guest">Guest</option>
+      </select>
+      <button onclick="register()">Register</button>
+    </div>
+
+    <div>
+      <h2>Login</h2>
+      <input id="loginUsername" placeholder="Username" autocomplete="off">
+      <input id="loginPassword" type="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div class="route-buttons">
+      <button id="publicRouteButton" onclick="getPublicRoute()">Public Route</button>
+      <button id="userRouteButton" onclick="getUserRoute()">User Route</button>
+      <button id="adminRouteButton" onclick="getAdminRoute()">Admin Route</button>
+    </div>
+
+    <div id="response"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
